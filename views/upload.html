@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="./css/bootstrap.css">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <title>上传文件</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .allbg {
+      width: 100%;
+      min-width: 1000px;
+      height: 100%;
+      position: fixed;
+      background: url(./img/loginbg.gif);
+      background-size: cover;
+
+    }
+
+
+    .titlelogo {
+      position: fixed;
+      left: 106px;
+      top: 20px;
+      width: 151px;
+    }
+
+
+
+    .titlelogo .return {
+      background: url(./img/return.png) no-repeat center center;
+      text-decoration: none;
+      color: #fff;
+      line-height: 75px;
+      width: 52px;
+      font-size: 15px;
+      position: fixed;
+      left: 330px;
+      top: 0px;
+      height: 75px;
+      text-align: center;
+    }
+
+    .search {
+      width: 600px;
+      height: 50px;
+      line-height: 46px;
+      border: 2px solid #00a9c3;
+      border-radius: 15px;
+      box-sizing: border-box;
+      position: fixed;
+      left: 460px;
+      top: 25px;
+    }
+
+    .searchsc {
+      background: #00a9c3 url(./img/search.png) no-repeat 10px center;
+      background-size: 18px auto;
+      border: none;
+      width: 86px;
+      padding-left: 16px;
+      font-size: 16px;
+      height: 48px;
+      color: #fff;
+      position: fixed;
+      left: 975px;
+      top: 26px;
+      cursor: pointer;
+      border-radius: 15px;
+    }
+
+    .login {
+      font-size: 18px;
+      border-radius: 35px;
+      width: 120px;
+      height: 40px;
+      color: #00A9C3;
+      display: block;
+      border-color: #00A9C3;
+      font-weight: bolder;
+      position: fixed;
+      left: 1200px;
+      top: 33px;
+      box-shadow: 1px 1px 1px 2px #666;
+    }
+
+    .login a {
+      text-decoration: none;
+      color: #00A9C3;
+    }
+
+
+
+    .dh {
+      position: fixed;
+      top: 100px;
+      line-height: 50px;
+      background: #00A9C3;
+      width: 100%;
+      margin: auto;
+
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    .nav {
+      height: 50px;
+      width: 400px;
+      /* background-color: #0173DD; */
+    }
+
+    .center {
+      width: 1200px;
+      height: auto;
+      overflow: hidden;
+      /* position: relative; */
+      margin: auto;
+    }
+
+    .mynav ul {
+      width: 100%;
+      height: 100%;
+    }
+
+    .mynav ul li {
+      float: left;
+      width: 140px;
+      height: 100%;
+      text-align: center;
+      line-height: 50px;
+      margin-left: 130px;
+
+    }
+
+    .WaiBianKuang {
+      padding: 0 28px;
+    }
+
+    .mynav ul li>a {
+      color: #fff;
+      /* padding: 0 28px; */
+    }
+
+    .mynav ul li div {
+      overflow: hidden;
+      position: absolute;
+      width: 80px;
+      height: 0;
+      background-color: #fff;
+      /*border: 1px solid rgb(189, 189, 189);*/
+      /* 圆角 */
+      border-radius: 10px;
+      transition: height 0.2s, border 0.2s linear;
+      -moz-transition: height 0.2s, border 0.2s linear;
+      /* Safari and Chrome */
+      -webkit-transition: height 0.2s, border 0.2s linear;
+      /* Opera */
+      -o-transition: height 0.2s, border 0.2s linear;
+    }
+
+    .mynav ul li:hover {
+      background: #fff;
+      border-radius: 5px;
+    }
+
+    .mynav ul li:hover>a {
+      color: #00A9C3;
+    }
+
+    .mynav ul li:hover div {
+      height: 130px;
+      border: 1px solid rgb(189, 189, 189);
+      z-index: 100;
+    }
+
+    .mynav ul li div ul li:hover {
+      background: #00A9C3;
+    }
+
+    .mynav ul li div ul li:hover>a {
+      color: #fff;
+    }
+
+    .mynav ul li div ul {
+      width: 100%;
+      height: 200px;
+    }
+
+    .mynav ul li div ul li {
+      margin: 10px 3px 0 3px;
+      width: 74px;
+      height: 30px;
+      line-height: 30px;
+    }
+
+    .mynav ul li div ul li a {
+      display: block;
+      /*填充li*/
+      color: #00A9C3;
+    }
+
+    .upfile {
+      display: block;
+      margin: 200px auto 0px;
+      width: 500px;
+      background: rgb(56, 53, 53);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .upfile>input {
+      width: 300px;
+      height: 20px;
+      border: 2px solid #00A9C3;
+      background-color: rgba(0, 0, 0, 0);
+      border-radius: 20px;
+      margin: 5px 0;
+      color: #fff;
+      padding: 0px 20px;
+    }
+
+    .filesort span {
+      color: #fff;
+      margin: 5px;
+    }
+
+    .filesort label {
+      margin-right: 20px;
+    }
+
+  </style>
+
+  <body>
+    <div class="allbg">
+      <div style="background-color:#fff;width: 100%;position:fixed;z-index: 5;height: 150px;top:0;">
+        <div style="margin: auto;">
+          <div class="titlelogo">
+            <div class="center">
+              <a href="./shouye.html"><img src="./img/logo.png"
+                     alt="懒人图库"></a>
+              <a href="./shouye.html"
+                 class="return">首页</a>
+            </div>
+            <div>
+              <input type="text"
+                     class="search"
+                     id="search">
+              <button class="searchsc"
+                      id="searchbtn"
+                      onclick="location.href='./search.html'">搜索</button>
+            </div>
+            <div align="right">
+              <button class="login"><a href="./login.html">登录/注册</a></button>
+            </div>
+          </div>
+          <div class="dh">
+            <div class="mynav center">
+              <ul>
+                <li class="WaiBianKuang">
+                  <a href="./pngsucai.html">免扣PNG</a>
+                  <div>
+                    <ul>
+                      <li><a href="./pngsucai.html">PNG素材</a></li>
+                      <li><a href="">PNG背景</a></li>
+                      <li><a href="">矢量素材</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="WaiBianKuang"><a href="">精美JPG</a>
+                  <div>
+                    <ul>
+                      <li><a href="">JPG素材</a></li>
+                      <li><a href="">JPG背景</a></li>
+                      <li><a href="">JPG矢量</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="WaiBianKuang"><a href="./tyt.html">节日主题</a>
+                  <div>
+                    <ul>
+                      <li><a href="">春节主题</a></li>
+                      <li><a href="">国庆主题</a></li>
+                      <li><a href="">温情圣诞</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="WaiBianKuang"><a href="./psd.html">PSD素材</a>
+                  <div>
+                    <ul>
+                      <li><a href="">设计元素</a></li>
+                      <li><a href="">网页元素</a></li>
+                      <li><a href="">花纹元素</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="upfile">
+        <input type="text"
+               placeholder="图片标题"
+               id="ptitle">
+        <input type="text"
+               placeholder="图片作者/图片来源"
+               id="pauthor">
+        <input type="text"
+               placeholder="图片简介"
+               id="pidetail">
+        <input type="text"
+               placeholder="图片关键字"
+               id="pkey">
+        <input type="text"
+               placeholder="图片尺寸"
+               id="psize">
+        <div class="filesort form-check">
+          <span>图片分类：</span>
+          <input type="radio"
+                 class="form-check-input"
+                 name="sort"
+                 value="png"
+                 id="psortpng">
+          <label class="form-check-label"
+                 for="psortpng">PNG素材</label>
+          <input type="radio"
+                 class="form-check-input"
+                 name="sort"
+                 value="jpg"
+                 id="psortjpg">
+          <label class="form-check-label"
+                 for="psortjpg">JPG图片</label>
+          <input type="radio"
+                 class="form-check-input"
+                 name="sort"
+                 value="day"
+                 id="psortday">
+          <label class="form-check-label"
+                 for="psortday">节日主题</label>
+          <input type="radio"
+                 class="form-check-input"
+                 name="sort"
+                 value="psd"
+                 id="psortpsd">
+          <label class="form-check-label"
+                 for="psortpsd">PSD素材</label>
+          <br>
+          <input type="file"
+                 accept="img/*"
+                 id="pfile">
+          <button id="psortpng">提交</button>
+
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+    <!-- <button id="upload">提交</button> -->
+
+    <script>
+      var ptitle = document.getElementById('ptitle')
+      var pauthor = document.getElementById('pauthor')
+      var pidetail = document.getElementById('pidetail')
+      var pkey = document.getElementById('pkey')
+      var psize = document.getElementById('psize')
+      var upload = document.getElementById('upload')
+
+      function ajax(ptitleval, pauthorval, pidetailval, pkeyval, psortval, psizeval) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4) {
+            if (xhr.status >= 200 && xhr.status < 300) {
+              var result = JSON.parse(xhr.responseText);
+              console.log(result);
+            } else {
+              console.log('数据返回错误');
+            }
+          }
+        }
+        xhr.open('post', '/user/upload', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.send(`p_title =${ptitleval}&p_author=${pauthorval}&table=${psortval}&p_idetail=${pidetailval}&p_key=${pkeyval}&p_size =${psizeval}`);
+      }
+      function uppic(pfile) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4) {
+            if (xhr.status >= 200 && xhr.status < 300) {
+              // var result = JSON.parse(xhr.responseText);
+              // console.log(result);
+            } else {
+              console.log('数据返回错误');
+            }
+          }
+        }
+        xhr.open('post', '/user/uploadpic', true);
+        xhr.setRequestHeader('Content-type', false);
+        xhr.send(`p_src =${pfile.files[0]}`);
+      }
+      upload.onclick = function () {
+        var pfile = document.querySelector('#pfile')
+        // var pfileval=pfile.value.trim();
+        var ptitleval = ptitle.value.trim();
+        var pauthorval = pauthor.value.trim();
+        var pidetailval = pidetail.value.trim();
+        var psizeval = psize.value.trim();
+        var pkeyval = pkey.value.trim();
+        var psortpng = document.getElementById('psortpng')
+        var psortjpg = document.getElementById('psortjpg')
+        var psortday = document.getElementById('psortday')
+        var psortpsd = document.getElementById('psortpsd')
+        if (psortpng.checked) { psortval = 'p_scourse' }
+        else if (psortjpg.checked) { psortval = 'j_scourse' } else if (psortday.checked) { psortval = 'i_scourse' } else if (psortpsd.checked) { psortval = 's_scourse' }
+        uppic(pfile);
+        ajax(ptitleval, pauthorval, pidetailval, pkeyval, psortval, psizeval)
+      }
+
+    </script>
+  </body>
+
+</html>

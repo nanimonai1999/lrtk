@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="./css/bootstrap.css">
+    <link rel="stylesheet"
+          href="./css/lrtk.css">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+
+    <title>Document</title>
+  </head>
+
+
+  <body>
+    <div class="allbg">
+      <div style="background-color:#fff;width: 100%;position:fixed;z-index: 5;height: 150px;top: 0;">
+        <div style="margin: auto;">
+          <div class="titlelogo">
+            <div class="center">
+              <a href="./shouye.html"><img src="./img/logo.png"
+                     alt="懒人图库"></a>
+              <a href="./shouye.html"
+                 class="return">首页</a>
+            </div>
+            <div>
+
+              <input type="text"
+                     class="search"
+                     id="search">
+              <button class="searchsc"
+                      id="searchbtn">搜索</button>
+
+            </div>
+            <div align="right">
+              <button class="login"><a href="./login.html">登录/注册</a></button>
+            </div>
+          </div>
+          <div class="dh">
+            <div class="mynav center">
+              <ul>
+                <li class="WaiBianKuang">
+                  <a href="./pngsucai.html">免扣PNG</a>
+                  <div>
+                    <ul>
+                      <li><a href="">PNG素材</a></li>
+                      <li><a href="">PNG背景</a></li>
+                      <li><a href="">矢量素材</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="WaiBianKuang"><a href="">精美JPG</a>
+                  <div>
+                    <ul>
+                      <li><a href="">JPG素材</a></li>
+                      <li><a href="">JPG背景</a></li>
+                      <li><a href="">JPG矢量</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="WaiBianKuang"><a href="./tyt.html">节日主题</a>
+                  <div>
+                    <ul>
+                      <li><a href="">春节主题</a></li>
+                      <li><a href="">国庆主题</a></li>
+                      <li><a href="">温情圣诞</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="WaiBianKuang"><a href="./psd.html">PSD素材</a>
+                  <div>
+                    <ul>
+                      <li><a href="">设计元素</a></li>
+                      <li><a href="">网页元素</a></li>
+                      <li><a href="">花纹元素</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container"
+           style="margin-top: 170px;">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="">首页</a></li>
+          <li class="breadcrumb-item"><a href="./pngsucai.html">免扣png</a></li>
+        </ol>
+        <div class="zlass">
+          <ul class="nav nav-pills">
+            <span class="navspan">分类:</span>
+            <li class="nav-item m-2"><a href="./pngsucai.html"
+                 class="nav-link active"
+                 data-toggle="pill">PNG素材</a></li>
+            <li class="nav-item m-2"><a href=""
+                 class="nav-link"
+                 data-toggle="pill">PNG背景</a></li>
+            <li class="nav-item m-2"><a href=""
+                 class="nav-link"
+                 data-toggle="pill">矢量素材</a></li>
+
+          </ul>
+        </div>
+        <div class="zbody row"
+             id="zbody">
+          <div class="card cardw col-xl-2 col-lg-3 col-md-6 col-12 m-3">
+            <div class="card-header"><img src="./img/wzicon/icon4.png"
+                   alt=""
+                   class="w-75"></div>
+            <div class="card-body">
+              <a href=""
+                 class="card-title">RNG队标</a>
+              <p class="card-text"
+                 style="font-size: 10px;">LOL知名电竞俱乐部，RNG的队标</p>
+            </div>
+            <div class="card-footer"
+                 style="text-align: center;"><button class="btn btn-block  btn-outline-primary ">点击下载</button></div>
+          </div>
+
+
+        </div>
+        <div class="zfoot">
+
+        </div>
+        <div class="zfoot">
+          <div style="margin:auto;text-align: center;">
+            <span style="color: #fff;">写的什么玩意啊</span>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+    <script>
+      var search = document.getElementById('search')
+      var searchbtn = document.getElementById('searchbtn')
+      function ajax(key) {
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4) {
+            if (xhr.status >= 200 && xhr.status < 300) {
+              var result = JSON.parse(xhr.responseText);
+              // console.log(result);
+              alert(result.msg);
+              list(result.data);
+            } else {
+              console.log('数据返回错误');
+            }
+          }
+        }
+        xhr.open('get', `/user/search/${key}`, true);
+        xhr.send();
+      }
+      function list(arr) {
+        console.log(arr)
+        var str = '';
+
+        if (arr.length >= 0) {
+          for (var i = 0; i < arr.length; i++) {
+            str += ` <div class="card cardw col-xl-2 col-lg-3 col-md-6 col-12 m-3">
+            <div class="card-header"><img src="./img/img_PNG/${arr[i].p_src}"
+                   alt=""
+                   class="w-75"></div>
+            <div class="card-body">
+              <a href=""
+                 class="card-title">${arr[i].p_title}</a>
+              <p class="card-text"
+                 style="font-size: 10px;">${arr[i].p_idetail}</p>
+            </div>
+            <div class="card-footer"
+                 style="text-align: center;"><button class="btn btn-block  btn-outline-primary ">点击下载</button></div>
+          </div>`
+          }
+          zbody.innerHTML = str;
+        } else {
+          zbody.innerHTML = '查询失败';
+        }
+      }
+
+      searchbtn.onclick = function () {
+        var searchval = search.value.trim();
+        ajax(searchval);
+      }
+    </script>
+
+  </body>
+
+</html>

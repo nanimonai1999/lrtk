@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+
+
+      .titlelogo {
+        position: fixed;
+        left: 106px;
+        top: 20px;
+        width: 151px;
+      }
+
+
+
+      .titlelogo .return {
+        background: url(./img/return.png) no-repeat center center;
+        text-decoration: none;
+        color: #fff;
+        line-height: 75px;
+        width: 52px;
+        font-size: 15px;
+        position: fixed;
+        left: 330px;
+        top: 0px;
+        height: 75px;
+        text-align: center;
+      }
+
+      .search {
+        width: 600px;
+        height: 50px;
+        line-height: 46px;
+        border: 2px solid #00a9c3;
+        border-radius: 15px;
+        box-sizing: border-box;
+        position: fixed;
+        left: 460px;
+        top: 25px;
+      }
+
+      .searchsc {
+        background: #00a9c3 url(./img/search.png) no-repeat 10px center;
+        background-size: 18px auto;
+        border: none;
+        width: 86px;
+        padding-left: 16px;
+        font-size: 16px;
+        height: 48px;
+        color: #fff;
+        position: fixed;
+        left: 975px;
+        top: 26px;
+        cursor: pointer;
+        border-radius: 15px;
+      }
+
+      .login {
+        font-size: 18px;
+        border-radius: 35px;
+        width: 120px;
+        height: 40px;
+        color: #00A9C3;
+        display: block;
+        border-color: #00A9C3;
+        font-weight: bolder;
+        position: fixed;
+        left: 1200px;
+        top: 33px;
+        box-shadow: 1px 1px 1px 2px #666;
+      }
+
+      .login a {
+        text-decoration: none;
+        color: #00A9C3;
+      }
+
+      .enter {
+        width: 300px;
+        margin: 200px auto;
+        border: 3px solid #00A9C3;
+        text-align: center;
+        border-radius: 20px;
+      }
+
+      .enter img {
+        width: 80px;
+        margin-top: -40px;
+      }
+
+      .enter input {
+        width: 180px;
+        height: 20px;
+        border: 2px solid #00A9C3;
+        background-color: rgba(0, 0, 0, 0);
+        border-radius: 20px;
+        margin: 5px 0;
+        color: #fff;
+        padding: 0px 20px;
+      }
+
+      .enter button {
+        width: 70px;
+        border-radius: 15px;
+        background-color: #00A9C3;
+        border: 2px solid white;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+
+
+
+      .dh {
+        position: fixed;
+        top: 100px;
+        line-height: 50px;
+        background: #00A9C3;
+        width: 100%;
+        margin: auto;
+
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      li {
+        list-style-type: none;
+      }
+
+      .nav {
+        height: 50px;
+        width: 400px;
+        /* background-color: #0173DD; */
+      }
+
+      .center {
+        width: 1200px;
+        height: auto;
+        overflow: hidden;
+        /* position: relative; */
+        margin: auto;
+      }
+
+      .mynav ul {
+        width: 100%;
+        height: 100%;
+      }
+
+      .mynav ul li {
+        float: left;
+        width: 80px;
+        height: 100%;
+        text-align: center;
+        line-height: 50px;
+        margin-left: 130px;
+
+      }
+
+      .WaiBianKuang {
+        padding: 0 28px;
+      }
+
+      .mynav ul li>a {
+        color: #fff;
+        /* padding: 0 28px; */
+      }
+
+      .mynav ul li div {
+        overflow: hidden;
+        position: absolute;
+        width: 80px;
+        height: 0;
+        background-color: #fff;
+        /*border: 1px solid rgb(189, 189, 189);*/
+        /* 圆角 */
+        border-radius: 10px;
+        transition: height 0.2s, border 0.2s linear;
+        -moz-transition: height 0.2s, border 0.2s linear;
+        /* Safari and Chrome */
+        -webkit-transition: height 0.2s, border 0.2s linear;
+        /* Opera */
+        -o-transition: height 0.2s, border 0.2s linear;
+      }
+
+      .mynav ul li:hover {
+        background: #fff;
+        border-radius: 5px;
+      }
+
+      .mynav ul li:hover>a {
+        color: #00A9C3;
+      }
+
+      .mynav ul li:hover div {
+        height: 130px;
+        border: 1px solid rgb(189, 189, 189);
+        z-index: 100;
+      }
+
+      .mynav ul li div ul li:hover {
+        background: #00A9C3;
+      }
+
+      .mynav ul li div ul li:hover>a {
+        color: #fff;
+      }
+
+      .mynav ul li div ul {
+        width: 100%;
+        height: 200px;
+      }
+
+      .mynav ul li div ul li {
+        margin: 10px 3px 0 3px;
+        width: 74px;
+        height: 30px;
+        line-height: 30px;
+      }
+
+      .mynav ul li div ul li a {
+        display: block;
+        /*填充li*/
+        color: #00A9C3;
+      }
+
+      .bg {
+        height: 1000px;
+        width: 100%;
+        background: url(./img/loginbg.gif) no-repeat;
+        background-size: cover;
+        position: fixed;
+        top: 0;
+      }
+
+    </style>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="bg">
+      <div style="background-color:#fff;width: 100%;position:fixed;z-index: 5;height: 150px;top:0;">
+        <div style="margin: auto;">
+          <div class="titlelogo">
+            <div class="center">
+              <a href="./shouye.html"><img src="./img/logo.png"
+                     alt="懒人图库"></a>
+              <a href="./shouye.html"
+                 class="return">首页</a>
+            </div>
+            <div>
+              <input type="text"
+                     class="search"
+                     id="search">
+              <button class="searchsc"
+                      id="searchbtn">搜索</button>
+            </div>
+            <div align="right">
+              <button class="login"><a href="./login.html">登录/注册</a></button>
+            </div>
+          </div>
+          <div class="dh">
+            <div class="mynav center">
+              <ul>
+                <li class="WaiBianKuang">
+                  <a href="./pngsucai.html">免扣PNG</a>
+                  <div>
+                    <ul>
+                      <li><a href="./pngsucai.html">PNG素材</a></li>
+                      <li><a href="">PNG背景</a></li>
+                      <li><a href="">矢量素材</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="WaiBianKuang"><a href="">精美JPG</a>
+                  <div>
+                    <ul>
+                      <li><a href="">JPG素材</a></li>
+                      <li><a href="">JPG背景</a></li>
+                      <li><a href="">JPG矢量</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="WaiBianKuang"><a href="./tyt.html">节日主题</a>
+                  <div>
+                    <ul>
+                      <li><a href="">春节主题</a></li>
+                      <li><a href="">国庆主题</a></li>
+                      <li><a href="">温情圣诞</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="WaiBianKuang"><a href="./psd.html">PSD素材</a>
+                  <div>
+                    <ul>
+                      <li><a href="">设计元素</a></li>
+                      <li><a href="">网页元素</a></li>
+                      <li><a href="">花纹元素</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="enter">
+        <div><input type="text"
+                 id="aname"
+                 placeholder="用户名"><br>
+          <input type="text"
+                 id="apwd"
+                 placeholder="密码"><br>
+          <button id="btn">登录</button><br>
+          <a href="./shouye.html"
+             style="font-size: 10px;">如未跳转，请点击此处</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      //1.获取所有需要的元素（id）
+      var aname = document.getElementById('aname');
+      var apwd = document.getElementById('apwd');
+      var btn = document.getElementById('btn');
+      var jump = document.getElementById('jump');
+      //2.写ajax函数
+      function ajax(a, b) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4) {
+            if (xhr.status >= 200 && xhr.status < 300) {
+              var result = JSON.parse(xhr.responseText);
+              console.log(result);
+              if (result.code == 1) {
+                alert('登陆成功')
+                location.href = './shouye.html'
+              } else { alert('用户名或密码错误') }
+            } else {
+              console.log('数据返回错误');
+            }
+          }
+        }
+        xhr.open('POST', '/user/login', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.send(`uname=${a}&upwd=${b}`);
+      }
+      //3.点击按钮接收用户输入内容并传递给ajax函数
+      btn.onclick = function () {
+        //先接收参数
+        var anameval = aname.value.trim();
+        var apwdval = apwd.value.trim();
+        //判断是否有空值
+        if (anameval != '' && apwdval != '') {
+          //在给ajax传参
+          ajax(anameval, apwdval);
+        } else {
+          alert('用户名和密码不能为空');
+        }
+
+      }
+
+    </script>
+  </body>
+
+</html>

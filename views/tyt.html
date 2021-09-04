@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0">
+        <title>图片素材—免费高清图片下载—懒人图库</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            .allbg {
+                width: 100%;
+                min-width: 1100px;
+                height: 745px;
+                position: relative;
+            }
+
+            .titlelogo {
+                position: fixed;
+                left: 106px;
+                top: 20px;
+                width: 151px;
+            }
+
+            .titlelogo .return {
+                background: url(./img/return1.png) no-repeat center center;
+                text-decoration: none;
+                color: #fff;
+                line-height: 75px;
+                width: 52px;
+                font-size: 15px;
+                position: fixed;
+                left: 330px;
+                top: 0px;
+                height: 75px;
+                text-align: center;
+            }
+
+            .search {
+                width: 600px;
+                height: 50px;
+                line-height: 46px;
+                border: 2px solid #00a9c3;
+                border-radius: 15px;
+                box-sizing: border-box;
+                position: fixed;
+                left: 460px;
+                top: 25px;
+            }
+
+            .searchsc {
+                background: #00a9c3 url(./img/search.png) no-repeat 10px center;
+                background-size: 18px auto;
+                border: none;
+                width: 86px;
+                padding-left: 16px;
+                font-size: 16px;
+                height: 48px;
+                color: #fff;
+                position: fixed;
+                left: 975px;
+                top: 26px;
+                cursor: pointer;
+                border-radius: 15px;
+            }
+
+            .login {
+                font-size: 18px;
+                border-radius: 35px;
+                width: 120px;
+                height: 40px;
+                color: #00A9C3;
+                display: block;
+                border-color: #00A9C3;
+                font-weight: bolder;
+                position: fixed;
+                left: 1100px;
+                top: 33px;
+                box-shadow: 1px 1px 1px 2px #666;
+            }
+
+            .second-nav {
+                margin: auto;
+                position: absolute;
+                top: 200px;
+                left: 200px;
+                width: 1020px;
+                padding: 20px 20px;
+                background-color: rgb(144, 241, 237);
+                border-radius: 30px;
+
+
+            }
+
+            .second-nav h5 {
+                color: #00A9C3;
+                font-size: 20px;
+                border-bottom: 2px solid #00A9C3;
+                width: 300px;
+            }
+
+            .second-nav ul {
+                list-style: none;
+                overflow: hidden;
+            }
+
+            .second-nav ul li {
+                float: left;
+                margin: 10px;
+            }
+
+            .second-nav ul li a {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .second-nav ul li a:hover {
+                color: #fff;
+                background: #00A9C3;
+                border-radius: 5px;
+                border: 1px solid black;
+            }
+
+            .second-nav h1 {
+                color: #00A9C3;
+            }
+
+            .dh {
+                position: fixed;
+                top: 100px;
+                line-height: 50px;
+                background: #00A9C3;
+                width: 100%;
+                margin: auto;
+
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            li {
+                list-style-type: none;
+            }
+
+            .nav {
+                height: 50px;
+                width: 400px;
+                /* background-color: #0173DD; */
+            }
+
+            .center {
+                width: 1100px;
+                height: auto;
+                overflow: hidden;
+                /* position: relative; */
+                margin: auto;
+            }
+
+            .nav ul {
+                width: 100%;
+                height: 100%;
+            }
+
+            .nav ul li {
+                float: left;
+                width: 80px;
+                height: 100%;
+                text-align: center;
+                line-height: 50px;
+                margin-left: 130px;
+
+            }
+
+            .WaiBianKuang {
+                padding: 0 28px;
+            }
+
+            .nav ul li>a {
+                color: #fff;
+                /* padding: 0 28px; */
+            }
+
+            .nav ul li div {
+                overflow: hidden;
+                position: absolute;
+                width: 80px;
+                height: 0;
+                background-color: #fff;
+                /*border: 1px solid rgb(189, 189, 189);*/
+                /* 圆角 */
+                border-radius: 10px;
+                transition: height 0.2s, border 0.2s linear;
+                -moz-transition: height 0.2s, border 0.2s linear;
+                /* Safari and Chrome */
+                -webkit-transition: height 0.2s, border 0.2s linear;
+                /* Opera */
+                -o-transition: height 0.2s, border 0.2s linear;
+            }
+
+            .nav ul li:hover {
+                background: #fff;
+                border-radius: 5px;
+            }
+
+            .nav ul li:hover>a {
+                color: #00A9C3;
+            }
+
+            .nav ul li:hover div {
+                height: 130px;
+                border: 1px solid rgb(189, 189, 189);
+                z-index: 100;
+            }
+
+            .nav ul li div ul li:hover {
+                background: #00A9C3;
+            }
+
+            .nav ul li div ul li:hover>a {
+                color: #fff;
+            }
+
+            .nav ul li div ul {
+                width: 100%;
+                height: 200px;
+            }
+
+            .nav ul li div ul li {
+                margin: 10px 3px 0 3px;
+                width: 74px;
+                height: 30px;
+                line-height: 30px;
+            }
+
+            .nav ul li div ul li a {
+                display: block;
+                /*填充li*/
+                color: #00A9C3;
+            }
+
+            .breadcrumb {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+                padding: 0.75rem 1rem;
+                margin-bottom: 1rem;
+                list-style: none;
+                border-radius: 0.25rem;
+                position: absolute;
+                top: 170px;
+                left: 0px;
+            }
+
+            .breadcrumb-item+.breadcrumb-item::before {
+                content: ">";
+            }
+
+            /* .a {
+            display: none !important;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 186px !important;
+            background-color: rgba(0, 0, 0, .5);
+            border: none !important;
+        } */
+
+            a {
+                text-decoration: none;
+                color: #666666;
+            }
+
+            .tyt-daoyu {
+                background-image: url(./img/a.png) no-repeat;
+                overflow: hidden;
+                position: absolute;
+                top: 200px;
+                left: 40px;
+            }
+
+            .tyt-daoyu pic {
+                width: 120px;
+                height: 80px;
+            }
+
+
+            .tyt-text {
+                width: 700px;
+                line-height: 24px;
+                color: #666;
+                border: 1px solid #EEE;
+                padding: 20px 20px 20px 20px;
+                font-size: 13px;
+                float: left;
+            }
+
+            .tyt-text2 {
+                width: 100%;
+                border: hidden;
+                padding-left: 10px;
+            }
+
+            .piclist1 {
+                width: 260px;
+                height: 180px;
+                padding: 5px 0px 5px 0px;
+                /* position : relative; */
+            }
+
+            .mydiv1 {
+                width: 290px;
+                height: 240px;
+                overflow: hidden;
+                /* display: table; */
+                /* position:absolute ; */
+                text-align: center;
+                float: left;
+            }
+
+            .mydiv2 {
+                width: 300px;
+                /* height: 100px; */
+                overflow: hidden;
+                float: left;
+                /* border:1px solid black; */
+            }
+
+            .piclist2 {
+                width: 50px;
+                padding: 5px 0px 5px 0px;
+                /* position : relative; */
+                float: left;
+            }
+
+            .tyt {
+                width: 800px;
+                /* overflow: hidden; */
+                margin: 0px;
+                position: absolute;
+                top: 270px;
+                left: 0px;
+            }
+
+            .col-4 {
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 33.333333%;
+                flex: 0 0 33.333333%;
+                max-width: 33.333333%;
+            }
+
+            p {
+                margin-top: 0px;
+            }
+
+            .table {
+                float: top;
+                width: 250px;
+                position: absolute;
+                top: 270px;
+                left: 830px;
+            }
+
+            body>div {
+                width: 100%;
+                overflow: hidden;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <div class="allbg">
+                <div style="background-color:#fff;width: 100%;position:fixed;z-index: 5;height: 150px;">
+                    <div style="margin: auto;">
+                        <div class="titlelogo">
+                            <div class="center">
+                                <a href="./shouye.html"><img src="./img/logo.png"
+                                         alt="懒人图库"></a>
+                                <a href="./search.html"
+                                   class="return"></a>
+                            </div>
+                            <div>
+                                <input type="text"
+                                       class="search"
+                                       id="search">
+                                <button class="searchsc"
+                                        id="searchbtn">搜索</button>
+                            </div>
+                            <div align="right">
+                                <button class="login">登录/注册</button>
+                            </div>
+                        </div>
+                        <div class="dh">
+                            <div class="nav center">
+                                <ul>
+                                    <li class="WaiBianKuang">
+                                        <a href="./pngsucai.html">免扣PNG</a>
+                                        <div>
+                                            <ul>
+                                                <li><a href="#">PNG素材</a></li>
+                                                <li><a href="#">PNG背景</a></li>
+                                                <li><a href="#">矢量素材</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="WaiBianKuang"><a href="#">精美JPG</a>
+                                        <div>
+                                            <ul>
+                                                <li><a href="#">JPG素材</a></li>
+                                                <li><a href="#">JPG背景</a></li>
+                                                <li><a href="#">JPG矢量</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="WaiBianKuang"><a href="#">节日主题</a>
+                                        <div>
+                                            <ul>
+                                                <li><a href="#">春节主题</a></li>
+                                                <li><a href="#">国庆主题</a></li>
+                                                <li><a href="#">温情圣诞</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="WaiBianKuang"><a href="./psd.html">PSD素材</a>
+                                        <div>
+                                            <ul>
+                                                <li><a href="#">设计元素</a></li>
+                                                <li><a href="#">网页元素</a></li>
+                                                <li><a href="#">花纹元素</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <!-- 面包屑导航 -->
+                    <ol class="breadcrumb"
+                        style="z-index: 999;">
+                        <li><a href="#">当前位置：</a></li>
+                        <li class="breadcrumb-item"><a href="./shouye.html">首页</a></li>
+                        <li class="breadcrumb-item"><a href="./search.html">图片素材</a></li>
+                    </ol>
+                    <hr>
+                </div>
+                <!-- 导语 -->
+                <div class="tyt-daoyu">
+                    <span class="pic"></span>
+                    <div class="tyt-text ">一张实用的图片会让你感动；十张实用的图片会让你失态；多少张实用的图片会让你崩溃?
+                        <br>我们拒绝滥竽充数，给你最清晰、最实用的图片素材，一键打包下载！
+                    </div>
+                </div>
+                <br>
+                <div style="float: left;">
+                    <div class="tyt">
+                        <!-- 图片板块 -->
+                        <div class="mydiv1 col-4">
+                            <a href="#"><img src="./img/4.jpg"
+                                     alt=""
+                                     class="piclist1"></a>
+                            <p>傍晚的高速公路和城市高清图片</p>
+                        </div>
+                        <div class="mydiv1 col-4">
+                            <a href="#"><img src="./img/4.jpg"
+                                     alt=""
+                                     class="piclist1"></a>
+                            <p>傍晚的高速公路和城市高清图片</p>
+                        </div>
+                        <div class="mydiv1 col-4">
+                            <a href="#"><img src="./img/4.jpg"
+                                     alt=""
+                                     class="piclist1"></a>
+                            <p>傍晚的高速公路和城市高清图片</p>
+                        </div>
+                        <div class="mydiv1 col-4">
+                            <a href="#"><img src="./img/4.jpg"
+                                     alt=""
+                                     class="piclist1"></a>
+                            <p>傍晚的高速公路和城市高清图片</p>
+                        </div>
+                        <div class="mydiv1 col-4">
+                            <a href="#"><img src="./img/4.jpg"
+                                     alt=""
+                                     class="piclist1"></a>
+                            <p>傍晚的高速公路和城市高清图片</p>
+                        </div>
+                        <div class="mydiv1 col-4">
+                            <a href="#"><img src="./img/4.jpg"
+                                     alt=""
+                                     class="piclist1"></a>
+                            <p>傍晚的高速公路和城市高清图片</p>
+                        </div>
+                    </div>
+                    <div class="table"
+                         style="float: left;">
+                        <!-- 表格模块 -->
+                        <table>
+                            <thead>
+                                <tr style="background-color: black;color: white;">
+                                    <td>图片素材</td>
+                                    <td colspan="3"
+                                        style="text-align: right;">更多>></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="#">背景图片</a></td>
+                                    <td><a href="#">风景图片</a></td>
+                                    <td><a href="#">人物图片</a></td>
+                                    <td><a href="#">静物图片</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">动物图片</a></td>
+                                    <td><a href="#">植物花卉</a></td>
+                                    <td><a href="#">3D小人儿</a></td>
+                                    <td><a href="#">美食图片</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">水果图片</a></td>
+                                    <td><a href="#">蔬菜图片</a></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">京东网上商城，领券满199减100，全场1元加购！<a href="#"
+                                           style="color: red;outline-style: none;"><br>点击进入</a></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">猜你也喜欢看这些 ······</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        <div class="mydiv2">
+                                            <a href="#"><img src="./img/003.jpg"
+                                                     alt="红色玫瑰"
+                                                     class="piclist2"></a>
+                                            <p>2张红色玫瑰平铺背景图片</p>
+                                            <p>植物花卉</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        <div class="mydiv2">
+                                            <a href="#"><img src="./img/003.jpg"
+                                                     alt="红色玫瑰"
+                                                     class="piclist2"></a>
+                                            <p>2张红色玫瑰平铺背景图片</p>
+                                            <p>植物花卉</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        <div class="mydiv2">
+                                            <a href="#"><img src="./img/003.jpg"
+                                                     alt="红色玫瑰"
+                                                     class="piclist2"></a>
+                                            <p>2张红色玫瑰平铺背景图片</p>
+                                            <p>植物花卉</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+    </body>
+
+</html>

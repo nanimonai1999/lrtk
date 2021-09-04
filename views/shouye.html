@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="./css/lrtk.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="allbg">
+      <div class="titlecenter">
+        <div class="titlelogo">
+          <div class="center">
+            <a href="./shouye.html"><img src="./img/logo.png"
+                   alt="懒人图库"></a>
+            <a href="./shouye.html"
+               class="return">首页</a>
+          </div>
+          <div>
+            <input type="text"
+                   class="search"
+                   id="search">
+            <button class="searchsc"
+                    id="searchbtn"
+                    onclick="location.href='./search.html'">搜索</button>
+          </div>
+          <div align="right">
+            <button class="login"><a href="./login.html">登录/注册</a></button>
+          </div>
+        </div>
+        <div class="dh">
+          <div class="mynav center">
+            <ul>
+              <li class="WaiBianKuang">
+                <a href="./pngsucai.html">免扣PNG</a>
+                <div>
+                  <ul>
+                    <li><a href="./pngsucai.html">PNG素材</a></li>
+                    <li><a href="">PNG背景</a></li>
+                    <li><a href="">矢量素材</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="WaiBianKuang"><a href="">精美JPG</a>
+                <div>
+                  <ul>
+                    <li><a href="">JPG素材</a></li>
+                    <li><a href="">JPG背景</a></li>
+                    <li><a href="">JPG矢量</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="WaiBianKuang"><a href="./tyt.html">节日主题</a>
+                <div>
+                  <ul>
+                    <li><a href="">春节主题</a></li>
+                    <li><a href="">国庆主题</a></li>
+                    <li><a href="">温情圣诞</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="WaiBianKuang"><a href="./psd.html">PSD素材</a>
+                <div>
+                  <ul>
+                    <li><a href="">设计元素</a></li>
+                    <li><a href="">网页元素</a></li>
+                    <li><a href="">花纹元素</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <div class="mysecond-nav">
+        <div>
+          <h1>关键字查询</h1>
+          <h5>| 矢量元素</h5>
+          <ul><a href="#"></a>
+            <li><a href="/search.html">花纹</a></li>
+            <li><a href="#">果蔬</a></li>
+            <li><a href="#">植物</a></li>
+            <li><a href="#">动物</a></li>
+            <li><a href="#">建筑</a></li>
+            <li><a href="#">实用</a></li>
+            <li><a href="#">生活</a></li>
+            <li><a href="#">节日</a></li>
+            <li><a href="#">卡通</a></li>
+            <li><a href="#">中国风</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>| 其他矢量</h5>
+          <ul><a href="#"></a>
+            <li><a href="#">背景</a></li>
+            <li><a href="#">图标</a></li>
+            <li><a href="#">标志</a></li>
+            <li><a href="#">字体</a></li>
+            <li><a href="#">广告设计</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>| 免抠PNG</h5>
+          <ul><a href="#"></a>
+            <li><a href="#">装饰图案</a></li>
+            <li><a href="#">卡通手绘</a></li>
+            <li><a href="#">免抠摄影</a></li>
+            <li><a href="#">图标元素</a></li>
+            <li><a href="#">边框纹理</a></li>
+            <li><a href="#">效果元素</a></li>
+            <li><a href="#">促销标签</a></li>
+            <li><a href="#">漂浮元素</a></li>
+            <li><a href="#">表情包</a></li>
+            <li><a href="#">节日元素</a></li>
+            <li><a href="#">PPT元素</a></li>
+            <li><a href="#">艺术字</a></li>
+            <li><a href="#">不规则图</a></li>
+            <li><a href="#">其他</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script>
+      function ajax() {
+        let xhr = XMLHttpRequest;
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4) {
+            if (xhr.status >= 200 && xhr.status < 300) {
+              var result = JSON.parse(xhr.responseText);
+              console.log(result);
+              if (result.code == 1) {
+                alert('登陆成功')
+              } else { alert('用户名或密码错误') }
+            } else {
+              console.log('数据返回错误');
+            }
+          }
+        }
+        xhr.open('get', '/search', true);
+        xhr.send();
+      }
+      var searchbtn = document.getElementById('search')
+      searchbtn.onclick = function () {
+
+      }
+    </script>
+  </body>
+
+</html>

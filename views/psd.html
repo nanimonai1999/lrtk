@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>懒人图库</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .allbg {
+    width: 100%;
+    min-width: 1000px;
+    height: 1500px;
+    position: relative;
+  }
+
+
+  .titlelogo {
+    position: fixed;
+    left: 106px;
+    top: 20px;
+    width: 151px;
+  }
+
+  .titlelogo .return {
+    background: url(./img/return.png) no-repeat center center;
+    text-decoration: none;
+    color: #fff;
+    line-height: 75px;
+    width: 52px;
+    font-size: 15px;
+    position: fixed;
+    left: 330px;
+    top: 0px;
+    height: 75px;
+    text-align: center;
+  }
+
+  .search {
+    width: 600px;
+    height: 50px;
+    line-height: 46px;
+    border: 2px solid #00a9c3;
+    border-radius: 15px;
+    box-sizing: border-box;
+    position: fixed;
+    left: 460px;
+    top: 25px;
+  }
+
+  .searchsc {
+    background: #00a9c3 url(./img/search.png) no-repeat 10px center;
+    background-size: 18px auto;
+    border: none;
+    width: 86px;
+    padding-left: 16px;
+    font-size: 16px;
+    height: 48px;
+    color: #fff;
+    position: fixed;
+    left: 975px;
+    top: 26px;
+    cursor: pointer;
+    border-radius: 15px;
+  }
+
+  .login {
+    font-size: 18px;
+    border-radius: 35px;
+    width: 120px;
+    height: 40px;
+    color: #00A9C3;
+    display: block;
+    border-color: #00A9C3;
+    font-weight: bolder;
+    position: fixed;
+    left: 1200px;
+    top: 33px;
+    box-shadow: 1px 1px 1px 2px #666;
+  }
+
+  .login a {
+      text-decoration: none;
+      color: #00A9C3;
+    }
+  .second-nav {
+    margin: auto;
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    width: 1020px;
+    padding: 20px 20px;
+    background-color: rgb(144, 241, 237);
+    border-radius: 30px;
+
+
+  }
+
+  .second-nav h5 {
+    color: #00A9C3;
+    font-size: 20px;
+    border-bottom: 2px solid #00A9C3;
+    width: 300px;
+  }
+
+  .second-nav ul {
+    list-style: none;
+    overflow: hidden;
+  }
+
+  .second-nav ul li {
+    float: left;
+    margin: 10px;
+  }
+
+  .second-nav ul li a {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .second-nav ul li a:hover {
+    color: #fff;
+    background: #00A9C3;
+    border-radius: 5px;
+    border: 1px solid black;
+  }
+
+  .second-nav h1 {
+    color: #00A9C3;
+  }
+
+  .dh {
+    position: fixed;
+    top: 100px;
+    line-height: 50px;
+    background: #00A9C3;
+    width: 100%;
+    margin: auto;
+
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  .nav {
+    height: 50px;
+    width: 400px;
+    /* background-color: #0173DD; */
+  }
+
+  .center {
+    width: 1200px;
+    height: auto;
+    overflow: hidden;
+    /* position: relative; */
+    margin: auto;
+  }
+
+  .nav ul {
+    width: 100%;
+    height: 100%;
+  }
+
+  .nav ul li {
+    float: left;
+    width: 80px;
+    height: 100%;
+    text-align: center;
+    line-height: 50px;
+    margin-left: 130px;
+
+  }
+
+  .WaiBianKuang {
+    padding: 0 28px;
+  }
+
+  .nav ul li>a {
+    color: #fff;
+    /* padding: 0 28px; */
+  }
+
+  .nav ul li div {
+    overflow: hidden;
+    position: absolute;
+    width: 80px;
+    height: 0;
+    background-color: #fff;
+    /*border: 1px solid rgb(189, 189, 189);*/
+    /* 圆角 */
+    border-radius: 10px;
+    transition: height 0.2s, border 0.2s linear;
+    -moz-transition: height 0.2s, border 0.2s linear;
+    /* Safari and Chrome */
+    -webkit-transition: height 0.2s, border 0.2s linear;
+    /* Opera */
+    -o-transition: height 0.2s, border 0.2s linear;
+  }
+
+  .nav ul li:hover {
+    background: #fff;
+    border-radius: 5px;
+  }
+
+  .nav ul li:hover>a {
+    color: #00A9C3;
+  }
+
+  .nav ul li:hover div {
+    height: 130px;
+    border: 1px solid rgb(189, 189, 189);
+    z-index: 100;
+  }
+
+  .nav ul li div ul li:hover {
+    background: #00A9C3;
+  }
+
+  .nav ul li div ul li:hover>a {
+    color: #fff;
+  }
+
+  .nav ul li div ul {
+    width: 100%;
+    height: 200px;
+  }
+
+  .nav ul li div ul li {
+    margin: 10px 3px 0 3px;
+    width: 74px;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  .nav ul li div ul li a {
+    display: block;
+    /*填充li*/
+    color: #00A9C3;
+  }
+
+  /* -------- */
+  .allbg .body {
+    /* background-color:rgb(248, 248, 249); */
+    width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 300px;
+  }
+
+  /* big */
+  .allbg .body .big {
+    width: 100%;
+    float: left;
+    margin-left: auto;
+  }
+
+  .allbg .body .psd {
+    /* margin-top: 270px; */
+    overflow: hidden;
+  }
+
+  .allbg .body .psd a {
+    color: #666;
+    text-decoration: none;
+    float: left;
+  }
+
+  .allbg .body .psd span {
+    color: #666;
+    text-decoration: none;
+    float: left;
+  }
+
+  .allbg .body .psd hr {
+    margin-top: 25px;
+  }
+
+  .allbg .body .gg {
+    margin-top: 20px;
+    width: 700px;
+    height: 100px;
+    border: 1px solid rgb(224, 211, 211);
+    overflow: hidden;
+  }
+
+  /* 广告图片 */
+  .allbg .body .gg img {
+    height: 100px;
+    float: left;
+  }
+
+  /* 广告文字 */
+  .allbg .body .gg .gg-text {
+    color: #666;
+    font-size: 14px;
+    float: left;
+    padding: 20px 20px;
+    line-height: 25px;
+  }
+
+  /* 展示图片 */
+  .allbg .body .display {
+    margin-top: 30px;
+    /* 满足自动换行  */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+  }
+
+  .allbg .body .display img {
+    width: 220px;
+    height: 140px;
+  }
+
+  .allbg .body .display a {
+    display: block;
+    color: #666;
+    text-decoration: none;
+    margin-top: 10px;
+    font-size: 12px;
+    margin-left: 10px;
+    margin-bottom: 50px;
+  }
+
+  /*body 左边*/
+  .allbg .body .ps-l {
+    width: 750px;
+    float: left;
+  }
+
+  /* 跳转按钮的样式 */
+  .tz ul{
+     font-size: 18px;
+     color: rgb(65, 65, 65);
+     overflow: hidden;
+  }
+  .tz ul li{
+    float: left;
+    margin-left: 14px;
+  }
+  .tz button{
+    width: 30px;
+    height: 30px;
+    color: rgb(96, 124, 39);
+    font-weight: 700;
+    border: 1px solid green;
+    background-color: white;
+    cursor: pointer;
+  }
+  .tz button:hover{
+    color:white;
+    font-weight: 700;
+    border: 1px solid green;
+    background-color: rgb(96, 124, 39);
+    cursor: pointer;
+  }
+
+  /* body 右边*/
+  .allbg .body .ps-r {
+    float: right;
+    margin-top: 20px;
+    margin-right: 80px;
+  }
+
+  .allbg .body .ps-r .psd-l {
+    text-align: left;
+    /* border: 10px solid red; */
+  }
+
+  .allbg .body .ps-r .psd-r {
+    text-align: right;
+  }
+
+  /* .ps-r table thead{
+      border: 5px solid rgb(8, 245, 0) !important;
+    } */
+  .ps-r table {
+    width: 300px;
+    height: 200px;
+
+  }
+
+  .ps-r table td {
+    border-bottom: rgb(224, 211, 211) 1px solid;
+  }
+
+  .psd-text {
+    width: 200px;
+    height: 30px;
+    background-color: black;
+
+    color: white;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+
+  }
+
+  .ps-r tbody a,
+  .ps-h a {
+    text-decoration: none;
+    color: #666;
+  }
+
+  .ps-r tbody a:hover {
+    color: rgb(0, 255, 85);
+  }
+
+  /* 右侧li显示图片 */
+  .ps-h ul li {
+    margin-top: 20px;
+  }
+
+
+  .ps-text {
+    width: 300px;
+    height: 75px;
+    overflow: hidden;
+    border-bottom: 1px solid rgb(189, 189, 189);
+  }
+
+  /* 脚部居中显示 */
+  .footer{
+    width: 1200px;;
+    margin: auto;
+    height: 300px;
+    background-color: black;
+    margin-top: 50px;
+  }
+
+  .all .gy{
+    width: 100%;
+    /* height: 220px; */
+    /* margin-left: 100px;
+    margin-top: -20px; */
+    /* padding-top: 40px; */
+    color: white;
+    /* border-right: 1px solid rgb(224, 211, 211) ; */
+  }
+  
+  .all .gy ul li{
+    margin-top: 10px;
+    
+  }
+  .all .gy ul li a{
+    color: white;
+  }
+</style>
+<!-- 感谢曹玉迪老铁倾情赞助的下拉菜单导航||老铁666 -->
+
+<body>
+  <div class="allbg">
+    <div style="background-color:#fff;width: 100%;position:fixed;z-index: 5;height: 150px;top: 0;">
+      <div style="margin: auto;">
+        <div class="titlelogo">
+          <div class="center">
+            <a href="./shouye.html"><img src="./img/logo.jpg" alt="懒人图库"></a>
+            <a href="./shouye.html" class="return">首页</a>
+          </div>
+          <div>
+            <input type="text" class="search" id="search">
+            <button class="searchsc" id="searchbtn">搜索</button>
+          </div>
+          <div align="right">
+            <button class="login"><a href="./login.html">登录/注册</a></button>
+          </div>
+        </div>
+        <div class="dh">
+          <div class="nav center">
+            <ul>
+              <li class="WaiBianKuang">
+                <a href="./pngsucai.html">免扣PNG</a>
+                <div>
+                  <ul>
+                    <li><a href="">PNG素材</a></li>
+                    <li><a href="">PNG背景</a></li>
+                    <li><a href="">矢量素材</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="WaiBianKuang"><a href="">精美JPG</a>
+                <div>
+                  <ul>
+                    <li><a href="">JPG素材</a></li>
+                    <li><a href="">JPG背景</a></li>
+                    <li><a href="">JPG矢量</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="WaiBianKuang"><a href="./tyt.html">节日主题</a>
+                <div>
+                  <ul>
+                    <li><a href="">春节主题</a></li>
+                    <li><a href="">国庆主题</a></li>
+                    <li><a href="">温情圣诞</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="WaiBianKuang"><a href="./psd.html">PSD素材</a>
+                <div>
+                  <ul>
+                    <li><a href="">设计元素</a></li>
+                    <li><a href="">网页元素</a></li>
+                    <li><a href="">花纹元素</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--中间效果 分为左边右边 -->
+    <div class="body">
+      <!-- 整体中间 -->
+      <div class="big">
+        <!-- 当前位置 -->
+        <div class="psd">
+          <span>当前位置:</span>
+          <a href="#">首页</a>
+          <a href="#">>psd素材></a>
+          <hr>
+        </div>
+        <div class="ps-l">
+          <!--广告文字介绍 -->
+          <!-- 广告图片 -->
+          <div class="gg">
+            <img src="./img/ps.png" alt="">
+            <div class="gg-text">
+              <span>再好的图不如抠好的图。再好的图不如抠好的图。再好的图不如抠好的图…… ：）<br>本频道素材请使用Photoshop打开。</span>
+            </div>
+          </div>
+          <!-- 图片展示 -->
+          <div class="display">
+            <div class="d-pic">
+              <img src="./img/display1.jpg" alt="">
+              <a href="#">95个淘宝打折秒杀清仓图标PSD素材</a>
+            </div>
+            <div class="d-pic">
+              <img src="./img/display2.jpg" alt="">
+              <a href="#">4个立体卷角空白纸张PSD素材</a>
+            </div>
+            <div class="d-pic">
+              <img src="./img/display3.jpg" alt="">
+              <a href="#">21款红色祥云PSD素材</a>
+            </div>
+            <div class="d-pic">
+              <img src="./img/display4.jpg" alt="">
+              <a href="#">14种水彩水果PSD素材</a>
+            </div>
+            <div class="d-pic">
+              <img src="./img/display5.jpg" alt="">
+              <a href="#">12个扁平风格图标下载</a>
+            </div>
+            <div class="d-pic">
+              <img src="./img/display6.jpg" alt="">
+              <a href="#">52个IOS系统图标PSD素材</a>
+            </div>
+            <div class="d-pic">
+              <img src="./img/display7.jpg" alt="">
+              <a href="#">95个淘宝打折秒杀清仓图标PSD素材</a>
+            </div>
+            <div class="d-pic">
+              <img src="./img/display8.jpg" alt="">
+              <a href="#">95个淘宝打折秒杀清仓图标PSD素材</a>
+            </div>
+            <div class="d-pic">
+              <img src="./img/display9.jpg" alt="">
+              <a href="#">95个淘宝打折秒杀清仓图标PSD素材</a>
+            </div>
+            <div class="d-pic">
+              <img src="./img/display10.jpg" alt="">
+              <a href="#">95个淘宝打折秒杀清仓图标PSD素材</a>
+            </div>
+            <div class="d-pic">
+              <img src="./img/display11.jpg" alt="">
+              <a href="#">95个淘宝打折秒杀清仓图标PSD素材</a>
+            </div>
+            <div class="d-pic">
+              <img src="./img/display12.jpg" alt="">
+              <a href="#">95个淘宝打折秒杀清仓图标PSD素材</a>
+            </div>
+            <div class="d-pic">
+              <img src="./img/display13.jpg" alt="">
+              <a href="#">95个淘宝打折秒杀清仓图标PSD素材</a>
+            </div>
+            <div class="d-pic">
+              <img src="./img/display9.jpg" alt="">
+              <a href="#">95个淘宝打折秒杀清仓图标PSD素材</a>
+            </div>
+            <div class="d-pic">
+              <img src="./img/display6.jpg" alt="">
+              <a href="#">95个淘宝打折秒杀清仓图标PSD素材</a>
+            </div>
+          </div>
+
+          <!-- 跳转页面 -->
+          <div class="tz">
+              <ul>
+                <li>首页</li>
+                <li>
+                  <button>1</button>
+                </li>
+                <li>
+                  <button>2</button>
+                </li>
+                <li>
+                  <button>3</button>
+                </li>
+                <li>
+                  <button>4</button>
+                </li>
+                <li>
+                  <button>5</button>
+                </li>
+                <li>
+                  <button>6</button>
+                </li>
+                <li>
+                  <button>7</button>
+                </li>
+                <li>
+                  <button>8</button>
+                </li>
+                <li>
+                  <button>9</button>
+                </li>
+                <li>
+                  <button>10</button>
+                </li>
+                <li>
+                  <button style="width: 50px;">下一页</button>
+                </li>
+                <li>
+                  <button style="width: 40px;">末页</button>
+                </li>
+              </ul>
+          </div>
+        </div>
+        <!-- 右边专栏 -->
+        <div class="ps-r">
+          <table>
+            <thead>
+              <tr class="psd-text">
+                <td class="psd-l" colspan="2">PSD素材</td>
+                <td class="psd-r" colspan="2">全部</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="#">设计元素</a></td>
+                <td><a href="#">网页元素</a></td>
+                <td><a href="#">按钮素材</a></td>
+                <td><a href="#">花纹元素</a></td>
+              </tr>
+              <tr>
+                <td><a href="#">房产模板</a></td>
+                <td><a href="#">名片模板</a></td>
+                <td><a href="#">字体设计</a></td>
+                <td><a href="#">图标设计</a></td>
+              </tr>
+              <tr>
+                <td><a href="#">包装设计</a></td>
+                <td><a href="#">喜庆节日</a></td>
+                <td><a href="#">界面设计</a></td>
+                <td><a href="#">植物花卉</a></td>
+              </tr>
+              <tr>
+                <td><a href="#">中国元素</a></td>
+                <td><a href="#">卡通素材</a></td>
+                <td><a href="#">人物素材</a></td>
+                <td><a href="#">生活百科</a></td>
+              </tr>
+            </tbody>
+
+          </table>
+          <p style="font-size: 15px;color:#e4393c;line-height: 40px; text-align: center;">京东商城，领劵满199减100，全场加1元加购 <br>
+            <a href="#" style="color: #00A9C3;">点击查看</a>
+          </p>
+          <div class="ps-h">
+            <ul>
+              <li>
+                <h4>猜你也喜欢这些......</h4>
+              </li>
+
+              <li>
+                <div class="ps-text">
+                  <a href="#">
+                    <img src="./img/psd-r1.jpg" alt="多款红色飘带PSD分层素材" style="width: 100px;float: left;">
+                    <a href="#" style="float: left;padding-left: 5px;">多款红色飘带PSD分层素材</a><br>
+                    <a href="#">
+                      <span style="float: left;font-size: 14px; color: rgb(183, 173, 175);padding-left: 5px;">设计元素</span><br>
+                      <p style="float: left;font-size: 12px;color: rgb(224, 211, 211);padding-left: 5px;">10-14</p>
+                  </a>
+                  </a>
+                </div>
+              </li>
+
+              <li>
+                <div class="ps-text">
+                  <a href="#">
+                    <img src="./img/psd-r2.jpg" alt="黄色警戒线PSD分层素材" style="width: 100px;float: left;">
+                    <a href="#" style="float: left;padding-left: 5px;">黄色警戒线PSD分层素材</a><br>
+                    <a href="#">
+                      <span style="float: left;font-size: 14px; color: rgb(183, 173, 175);padding-left: 5px;">设计元素</span><br>
+                      <p style="float: left;font-size: 12px;color: rgb(224, 211, 211);padding-left: 5px;">09-23</p>
+                  </a>
+                  </a>
+                </div>
+              </li>
+
+              <li>
+                <div class="ps-text">
+                  <a href="#">
+                    <img src="./img/psd-r3.jpg" alt="7个PSD分层BANNER" style="width: 100px;float: left;">
+                    <a href="#" style="float: left;padding-left: 5px;">7个PSD分层BANNER</a><br>
+                    <a href="#">
+                      <span style="float: left;font-size: 14px; color: rgb(183, 173, 175);padding-left: 5px;">设计元素</span><br>
+                      <p style="float: left;font-size: 12px;color: rgb(224, 211, 211);padding-left: 5px;">09-14</p>
+                  </a>
+                  </a>
+                </div>
+              </li>
+
+              <li>
+                <div class="ps-text">
+                  <a href="#">
+                    <img src="./img/psd-r4.jpg" alt="7种颜色的高质感按钮" style="width: 100px;float: left;">
+                    <a href="#" style="float: left;padding-left: 5px;">PSD7种颜色的高质感按钮</a><br>
+                    <a href="#">
+                      <span style="float: left;font-size: 14px; color: rgb(183, 173, 175);padding-left: 5px;">设计元素</span><br>
+                      <p style="float: left;font-size: 12px;color: rgb(224, 211, 211);padding-left: 5px;">09-14</p>
+                  </a>
+                  </a>
+                </div>
+              </li>
+          </div>
+          <div class="ps-h">
+            <ul>
+              <li>
+                <h4>这些是最新的......</h4>
+              </li>
+
+              <li>
+                <div class="ps-text">
+                  <a href="#">
+                    <img src="./img/psd-r1.jpg" alt="多款红色飘带PSD分层素材" style="width: 100px;float: left;">
+                    <a href="#" style="float: left;padding-left: 5px;">多款红色飘带PSD分层素材</a><br>
+                    <a href="#">
+                      <span style="float: left;font-size: 14px; color: rgb(183, 173, 175);padding-left: 5px;">设计元素</span><br>
+                      <p style="float: left;font-size: 12px;color: rgb(224, 211, 211);padding-left: 5px;">10-14</p>
+                  </a>
+                  </a>
+                </div>
+              </li>
+
+              <li>
+                <div class="ps-text">
+                  <a href="#">
+                    <img src="./img/psd-r2.jpg" alt="黄色警戒线PSD分层素材" style="width: 100px;float: left;">
+                    <a href="#" style="float: left;padding-left: 5px;">黄色警戒线PSD分层素材</a><br>
+                    <a href="#">
+                      <span style="float: left;font-size: 14px; color: rgb(183, 173, 175);padding-left: 5px;">设计元素</span><br>
+                      <p style="float: left;font-size: 12px;color: rgb(224, 211, 211);padding-left: 5px;">09-23</p>
+                  </a>
+                  </a>
+                </div>
+              </li>
+
+              <li>
+                <div class="ps-text">
+                  <a href="#">
+                    <img src="./img/psd-r3.jpg" alt="7个PSD分层BANNER" style="width: 100px;float: left;">
+                    <a href="#" style="float: left;padding-left: 5px;">7个PSD分层BANNER</a><br>
+                    <a href="#">
+                      <span style="float: left;font-size: 14px; color: rgb(183, 173, 175);padding-left: 5px;">设计元素</span><br>
+                      <p style="float: left;font-size: 12px;color: rgb(224, 211, 211);padding-left: 5px;">09-14</p>
+                  </a>
+                  </a>
+                </div>
+              </li>
+
+              <li>
+                <div class="ps-text">
+                  <a href="#">
+                    <img src="./img/psd-r4.jpg" alt="7种颜色的高质感按钮" style="width: 100px;float: left;">
+                    <a href="#" style="float: left;padding-left: 5px;">PSD7种颜色的高质感按钮</a><br>
+                    <a href="#">
+                      <span style="float: left;font-size: 14px; color: rgb(183, 173, 175);padding-left: 5px;">设计元素</span><br>
+                      <p style="float: left;font-size: 12px;color: rgb(224, 211, 211);padding-left: 5px;">09-14</p>
+                  </a>
+                  </a>
+                </div>
+              </li>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 脚部 -->
+    <div class="footer">
+      <div class="all"> 
+        <div class="gy">
+          <p style="font-size: 20px;text-align: center;line-height: 300px;">第四组 -- "即将起飞"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
